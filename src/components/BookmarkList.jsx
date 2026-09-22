@@ -1,12 +1,13 @@
 import BookmarkItem from './BookmarkItem';
+import styles from './BookmarkList.module.css';
 
 const BookmarkList = props => {
   if (props.items.length === 0) {
-    return <p>No bookmarks found in this category.</p>;
+    return <p className={styles.empty}>No bookmarks found in this category.</p>;
   }
 
   return (
-    <ul>
+    <ul className={styles.list}>
       {props.items.map(bookmark => (
         <BookmarkItem
           key={bookmark.id}
@@ -15,7 +16,7 @@ const BookmarkList = props => {
           url={bookmark.url}
           category={bookmark.category}
           isFavorite={bookmark.isFavorite}
-          onToggleFavorite={props.onToggleFavorite}
+          onFavoriteToggle={props.onToggleFavorite}
           onDelete={props.onDelete}
         />
       ))}

@@ -15,7 +15,6 @@ const App = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
 
   const addBookmarkHandler = (title, url, category) => {
-    event.preventDefault();
     const newBookmark = {
       id: Math.random().toString(),
       title,
